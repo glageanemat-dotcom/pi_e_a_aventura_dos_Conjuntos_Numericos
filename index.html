@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pi e a Aventura dos Conjuntos Numéricos</title>
+<link rel="stylesheet" href="./style.css">
+</head>
+<body>
+<section id="start" class="screen active">
+ <div class="card start-card">
+  <div style="font-size:70px">🗺️ 🤠 π</div>
+  <h1>Pi e a Aventura dos Conjuntos Numéricos</h1>
+  <p class="tag">Uma expedição pela História da Matemática: <b>N → Z → Q → I → R</b></p>
+  <div class="rules">
+   <div class="rule">❤️ <b>3 vidas</b><br>Cuide delas!</div>
+   <div class="rule">⭐ <b>100 pontos</b><br>por acerto</div>
+   <div class="rule">💡 <b>Dicas</b><br>em todas as questões</div>
+   <div class="rule">🏅 <b>5 medalhas</b><br>uma por fase</div>
+  </div>
+  <div class="namebox"><input id="playerName" maxlength="30" placeholder="Digite seu nome (opcional)"><button class="primary" onclick="startGame()">INICIAR EXPEDIÇÃO ▶</button></div>
+  <p><small>30 desafios • História da Matemática • Classificação dos números • Ensino Fundamental II / Ensino Médio</small></p>
+ </div>
+</section>
+
+<section id="game" class="screen">
+ <div class="card hud">
+  <div class="title-small">🧭 Pi e a Aventura dos Conjuntos Numéricos</div>
+  <div class="stat" id="lives">❤️❤️❤️</div>
+  <div class="stat">⭐ <span id="score">0</span></div>
+ </div>
+ <div class="card map"><div class="mapline" id="mapline"></div></div>
+ <div class="playarea">
+  <div class="card stage">
+   <div class="stage-name" id="stageName"></div>
+   <div class="speech" id="speech">Vamos explorar!</div>
+   <div class="mascot" id="mascot">
+    <div class="arm l"><div class="hand"></div></div><div class="arm r"><div class="hand"></div></div>
+    <div class="leg l"><div class="shoe"></div></div><div class="leg r"><div class="shoe"></div></div>
+    <div class="pi-body">π</div>
+    <div class="face"><div class="eye l"></div><div class="eye r"></div><div class="mouth"></div></div>
+    <div class="hat"><div class="hatTop"></div><div class="hatBand"></div><div class="hatBrim"></div></div>
+   </div>
+   <div class="medals" id="medals"></div>
+  </div>
+  <div class="card quiz">
+   <div class="progress"><div class="bar" id="bar"></div></div>
+   <div class="qmeta"><span id="phaseLabel"></span><span id="questionCount"></span></div>
+   <div class="question" id="question"></div>
+   <div class="answers" id="answers"></div>
+   <div class="actions"><button class="secondary" id="hintBtn" onclick="showHint()">💡 Pedir uma dica</button><button class="primary" id="nextBtn" onclick="nextQuestion()" style="display:none">Continuar ➜</button></div>
+   <div class="feedback" id="feedback"></div>
+  </div>
+ </div>
+</section>
+
+<section id="final" class="screen">
+ <div class="card final-card">
+  <div class="bigpi">π</div><h1>🏆 Missão concluída!</h1>
+  <p id="finalMessage"></p>
+  <div style="font-size:2rem" id="finalMedals"></div>
+  <div class="finalstats">
+   <div class="finalstat">⭐ Pontuação<br><span id="finalScore"></span>/3000</div>
+   <div class="finalstat">✅ Acertos<br><span id="finalHits"></span>/30</div>
+   <div class="finalstat">📊 Aproveitamento<br><span id="finalPct"></span>%</div>
+  </div>
+  <div class="phase-result" id="phaseResults"></div>
+  <h2 id="titleEarned"></h2>
+  <button class="primary" onclick="restart()">🔄 Jogar novamente</button>
+ </div>
+</section>
+
+<div class="overlay" id="overlay"><div class="card modal"><h2 id="modalTitle"></h2><p id="modalText"></p><button class="primary" id="modalBtn">Continuar ➜</button></div></div>
+
+<script src="./game.js" defer></script>
+</body>
+</html>
